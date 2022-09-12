@@ -6,9 +6,7 @@ const MAX_WIDGET_WEATHER_COUNT = 5;
 
 
 @Component({
-	selector: 'app-root',
-	templateUrl: './app.component.html',
-	styleUrls: [ './app.component.scss' ],
+	selector: 'app-root',templateUrl: './app.component.html',styleUrls: [ './app.component.scss' ],
 })
 export class AppComponent {
 	widgetWeathersData: WeatherInterface[] = [];
@@ -19,10 +17,14 @@ export class AppComponent {
 	}
 
 	addWidgetWeather(newWeatherWidgetData: WeatherInterface) {
-		if (this.widgetWeathersData.length < MAX_WIDGET_WEATHER_COUNT) {
+		if (this.widgetWeathersData.length < MAX_WIDGET_WEATHER_COUNT && !this.hasDuplicateWidgets(newWeatherWidgetData.name)) {
 			this.widgetWeathersData.push(newWeatherWidgetData)
 		}
 		this.updateLocalStorage();
+	}
+
+	hasDuplicateWidgets(city: string) {
+		return this.widgetWeathersData.some((widgetWeatherData => widgetWeatherData.name === city));
 	}
 
 	closeWidget(index: number) {

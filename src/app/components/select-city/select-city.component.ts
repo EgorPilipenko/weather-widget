@@ -15,7 +15,6 @@ import { WeatherInterface } from "../../interfaces/weather.interface";
 export class SelectCityComponent {
 	@Output() addNweCity = new EventEmitter<WeatherInterface>()
 	formCity!: FormGroup;
-	weathersInfo: WeatherInterface[] = [];
 
 	constructor(private fb: FormBuilder,private weatherService: ApiWeatherService,private _snackBar: MatSnackBar) {
 		this.createForm();
