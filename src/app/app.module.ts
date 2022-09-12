@@ -10,16 +10,21 @@ import { MatButtonModule } from "@angular/material/button";
 import { WeatherWidgetComponent } from './components/wether-widget/weather-widget.component';
 import { MatInputModule } from "@angular/material/input";
 import { ReactiveFormsModule } from "@angular/forms";
-import { HttpClient,HttpClientModule } from "@angular/common/http";
+import { HTTP_INTERCEPTORS,HttpClient,HttpClientModule } from "@angular/common/http";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Overlay } from "@angular/cdk/overlay";
 import { SelectCityComponent } from './components/select-city/select-city.component';
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { ApiKeyInterceptorService } from "./interceptor/api-key-interceptor.service";
 
 @NgModule({
 	declarations: [ AppComponent,WeatherWidgetComponent,SelectCityComponent ],
 	imports: [ BrowserModule,BrowserAnimationsModule,MatSliderModule,MatToolbarModule,MatIconModule,MatButtonModule,MatInputModule,ReactiveFormsModule,HttpClientModule,MatProgressSpinnerModule ],
-	providers: [ HttpClient,MatSnackBar,Overlay ],
+	providers: [ HttpClient,MatSnackBar,Overlay, {
+		provide: HTTP_INTERCEPTORS,
+		useClass: ApiKeyInterceptorService,
+		multi: true,
+	}, ],
 	bootstrap: [ AppComponent ]
 })
 export class AppModule {
