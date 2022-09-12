@@ -1,0 +1,31 @@
+<div class="main-block">
+    <div class="container">
+        <div class="header">
+            <div>{{weatherData.name}}</div>
+            <button class="close-button" (click)="closeWeatherWidget()" mat-icon-button>
+                <mat-icon>clear</mat-icon>
+            </button>
+        </div>
+
+        <div class="current-temp">
+            <div class="temp">{{weatherData.main.temp | number: '1.0-0'}}°</div>
+            <img src="http://openweathermap.org/img/w/{{weatherData.weather[0].icon}}.png" alt="weather-icon">
+        </div>
+
+        <div class="weather">
+            {{weatherData.weather[0].description | titlecase }}
+        </div>
+
+        <div class="day-temp">
+            <div class="max-day-temp">{{weatherData.main.temp_max | number: '1.0-0'}}°</div>
+            /
+            <div class="min-day-temp">{{weatherData.main.temp_min | number: '1.0-0'}}°</div>
+        </div>
+
+        <div class="wind">
+            <div class="speed">Скорость Ветра {{weatherData.wind.speed}} М/c</div>
+            <img alt="weather-icon" [ngStyle]="{ 'transform': 'rotate('+weatherData.wind.deg+'deg)'}" class="arrow"
+                 src="./assets/arrowheadup_111043.png">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+.main-block{
+  border-radius: 10px;
+  box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+}
+
+.container {
+  position: relative;
+  padding: 20px 50px 30px 30px;
+
+  .close-button{
+    position: absolute;
+    top: 5px;
+    right: 17px;
+  }
+
+  .header {
+    font-weight: 400;
+    font-size: 30px;
+    margin-bottom: 50px;
+  }
+
+  .current-temp {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 20px;
+
+    img {
+      padding-left: 16px;
+    }
+
+    .temp {
+      font-size: 50px;
+      line-height: 50px;
+    }
+
+    .weather-icon {
+      width: 50px;
+    }
+  }
+
+  .day-temp {
+    font-weight: 100;
+    font-size: 15px;
+    display: flex;
+    margin-bottom: 5px;
+  }
+
+  .wind {
+    display: flex;
+    align-items: center;
+
+    :first-child {
+      padding-right: 5px;
+    }
+
+    .arrow {
+      width: 15px;
+      height: 15px;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+<form [formGroup]="formCity" (submit)="addNewCity()" class="city-form">
+    <mat-form-field color="primary">
+        <mat-label>City</mat-label>
+        <input formControlName="city" matInput placeholder="Ex. Минск">
+    </mat-form-field>
+    <button [disabled]="weathersInfo.length>4" type="submit" color="primary" mat-button>Add</button>
+</form>

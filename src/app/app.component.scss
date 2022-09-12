@@ -1,0 +1,31 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.body {
+  height: calc(100vh - 168px);
+  padding: 20px 16px;
+  overflow: auto;
+  position: relative;
+
+  @media only screen and (max-width: 599px) {
+    height: calc(100vh - 152px);
+  }
+
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .main-block {
+      max-width: 300px;
+      width: 100%;
+      margin: 10px 20px;
+    }
+  }
+
+  .update-button {
+    display: flex;
+    justify-content: center;
+  }
+}
